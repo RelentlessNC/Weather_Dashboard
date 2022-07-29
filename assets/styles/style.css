@@ -1,0 +1,24 @@
+:root {
+    --color1: #E4F1F6;
+    --color2: #67AFCB;
+    --color3: #347B98;
+    --color4: #1A3E4C;
+    --color5: #092834;
+}
+
+html,
+body {
+    background-color: var(--color5);
+}
+
+.card,
+.jumbotron,
+#current-weather,
+#search {
+    background-color: var(--color3);
+    color: var(--color1);
+}
+
+#forecast-weather {
+    color: var(--color1);
+}
