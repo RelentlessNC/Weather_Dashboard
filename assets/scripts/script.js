@@ -26,7 +26,7 @@ searchBtn.addEventListener('click', searchCity);
 
 function searchCity() {
     if (searchBox) {
-        fetch('http://api.openweathermap.org/geo/1.0/direct?q=' + searchBox.value + '&appid=' + APIKey, {})
+        fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + searchBox.value + '&appid=' + APIKey, {})
             .then(function(response) {
                 return response.json();
             })
