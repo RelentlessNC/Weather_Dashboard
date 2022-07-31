@@ -14,7 +14,8 @@ body {
 .card,
 .jumbotron,
 #current-weather,
-#search {
+#search,
+#city-list {
     background-color: var(--color3);
     color: var(--color1);
 }

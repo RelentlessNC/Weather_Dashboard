@@ -11,7 +11,7 @@ var allWeatherData = '';
 const searchBox = document.getElementById('search-box');
 const searchBtn = document.getElementById('btn-search');
 const currentWeather = $(document.getElementById('current-weather'));
-const cityList = document.getElementById('city-list');
+const cityList = $(document.getElementById('city-list'));
 const forecastWeather = document.getElementById('forecast-weather');
 const forecastDay1 = $("#day1");
 const forecastDay2 = $("#day2");
@@ -28,13 +28,18 @@ function searchCity() {
     if (searchBox) {
         fetch('https://api.openweathermap.org/geo/1.0/direct?q=' + searchBox.value + '&appid=' + APIKey, {})
             .then(function(response) {
+                if (!response) {
+                    console.log('error');
+                }
                 return response.json();
             })
             .then(function(data) {
                 cityName = data[0].name;
                 getData(data[0].lat.toFixed(2), data[0].lon.toFixed(2));
+            })
+            .catch((err) => {
+                currentWeather.children('#current-city').text(err);
             });
-
     }
 }
 
@@ -47,16 +52,29 @@ function getData(lat, lon) {
         })
         .then(function(data) {
             allWeatherData = data;
+            searchHistory();
+            displayWeather();
+        })
+        .catch((err) => {
+            currentWeather.children('#current-city').text(err);
         });
-    displayWeather();
+
+}
+
+function searchHistory() {
+    localStorage.setItem(cityName, cityName);
+    for (var i = 0; i < localStorage.length; i++) {
+        console.log(localStorage.key[i]);
+    }
 }
 
 function displayWeather() {
+    searchBox.value = '';
     setTimeout(() => {
         var todaysDate = new Date(allWeatherData.current.dt * 1000);
         currentWeather.children('#current-city').text(cityName);
         currentWeather.children('#current-date').text(todaysDate.getMonth() + 1 + '/' + todaysDate.getDate() + '/' + todaysDate.getFullYear());
-        currentWeather.children('#current-weather').attr('src', 'http://openweathermap.org/img/wn/' + allWeatherData.current.weather[0].icon + '@2x.png');
+        currentWeather.children('#current-weather').attr('src', 'https://openweathermap.org/img/wn/' + allWeatherData.current.weather[0].icon + '@2x.png');
         currentWeather.children('#current-temp').text('Temp: ' + Math.ceil(allWeatherData.current.temp));
         currentWeather.children('#current-wind').text('Wind: ' + allWeatherData.current.wind_speed + "MPH");
         currentWeather.children('#current-humidity').text('Humidity: ' + allWeatherData.current.humidity + "%")
@@ -66,7 +84,7 @@ function displayWeather() {
             //console.log(allWeatherData.daily[i + 1].weather[0].icon);
             var iconCode = allWeatherData.daily[i].weather[0].icon;
             cards[i].children('.card-date').text(date.getMonth() + 1 + '/' + date.getDate() + '/' + date.getFullYear());
-            cards[i].children('.card-weather').attr('src', 'http://openweathermap.org/img/wn/' + iconCode + '@2x.png');
+            cards[i].children('.card-weather').attr('src', 'https://openweathermap.org/img/wn/' + iconCode + '@2x.png');
             cards[i].children('.card-temp').text("Temp: " + allWeatherData.daily[i + 1].temp.max + 'F');
             cards[i].children('.card-wind').text("Wind: " + allWeatherData.daily[i + 1].wind_speed + " MPH");
             cards[i].children('.card-humidity').text("Humidity: " + allWeatherData.daily[i + 1].humidity + "%");
