@@ -9,17 +9,34 @@
 html,
 body {
     background-color: var(--color5);
+    font-size: 1.2em;
 }
 
 .card,
 .jumbotron,
 #current-weather,
 #search,
-#city-list {
+#search-history {
     background-color: var(--color3);
     color: var(--color1);
 }
 
 #forecast-weather {
     color: var(--color1);
+}
+
+li {
+    text-decoration: none;
+    list-style: none;
+    width: 100%;
+    background-color: var(--color4);
+    text-align: center;
+    line-height: 2em;
+    border-radius: 10px;
+    font-size: 1.2em;
+    margin: 2%;
+}
+
+li:hover {
+    cursor: pointer;
 }

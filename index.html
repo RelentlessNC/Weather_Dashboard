@@ -13,76 +13,78 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4 text-center">Weather Dashboard</h1>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid col-sm-12">
+            <h1 class="text-center">Weather Dashboard</h1>
         </div>
-    </div>
-    <div class="row p-4">
-        <div class="col-sm-3 " id="search">
-            <h3>Search for a City:</h3>
-            <input type="textarea" id="search-box" /></br>
-            <button class="btn justify-center" id="btn-search">Search</button>
+        <div class="row">
+            <div class="col-sm-3 col-md-3 col-lg-3" id="search">
+                <h3>Search for a City:</h3>
+                <input type="textarea" id="search-box" class="mb-4" /></br>
+                <button class="btn justify-center" id="btn-search">Search</button>
+                <button class="btn justify-center" id="btn-clear">Clear History</button>
+            </div>
+            <div class="col-sm-9 col-md-9 col-lg-9 border" id="current-weather">
+                <h2 id="current-city" class="card-city"></h2>
+                <h4 id="current-date" class="card-date"></h4>
+                <img id="current-weather" class="card-weather" src="">
+                <p id="current-temp" class="card-temp"></p>
+                <p id="current-wind" class="card-wind"></p>
+                <p id="current-humidity" class="card-humidity"></p>
+            </div>
         </div>
-        <div class="col-sm-9 border" id="current-weather">
-            <h2 id="current-city" class="card-city"></h2>
-            <h4 id="current-date" class="card-date"></h4>
-            <img id="current-weather" class="card-weather" src="">
-            <p id="current-temp" class="card-temp"></p>
-            <p id="current-wind" class="card-wind"></p>
-            <p id="current-humidity" class="card-humidity"></p>
-        </div>
-    </div>
-    <div class="row p-4">
-        <div class="col-sm-3 " id="city-list">
-            <h3>Search History</h3>
-        </div>
-        <div class="col-sm-9" id="forecast-weather">
-            <h3 id="5-day-forecast">5 Day Forecast</h3>
-            <div class="row">
-                <div class="col-sm">
-                    <div class="card" id="day1">
-                        <h4 id="date1" class="card-date"></h4>
-                        <img id="weather1" class="card-weather" src="">
-                        <p id="temp1" class="card-temp"></p>
-                        <p id="wind1" class="card-wind"></p>
-                        <p id="humidity1" class="card-humidity"></p>
+        <div class="row pt-4">
+            <div class="col-sm-3 col-md-3 col-lg-3" id="search-history">
+                <h3>Search History</h3>
+                <ul id="city-list"></ul>
+            </div>
+            <div class="col-sm-9 col-md-9 col-lg-9" id="forecast-weather">
+                <h3 id="5-day-forecast">5 Day Forecast</h3>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="card" id="day1">
+                            <h4 id="date1" class="card-date"></h4>
+                            <img id="weather1" class="card-weather" src="">
+                            <p id="temp1" class="card-temp"></p>
+                            <p id="wind1" class="card-wind"></p>
+                            <p id="humidity1" class="card-humidity"></p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card" id="day2">
-                        <h4 id="date2" class="card-date"></h4>
-                        <img id="weather2" class="card-weather" scr="">
-                        <p id="temp2" class="card-temp"></p>
-                        <p id="wind2" class="card-wind"></p>
-                        <p id="humidity2" class="card-humidity"></p>
+                    <div class="col-sm">
+                        <div class="card" id="day2">
+                            <h4 id="date2" class="card-date"></h4>
+                            <img id="weather2" class="card-weather" scr="">
+                            <p id="temp2" class="card-temp"></p>
+                            <p id="wind2" class="card-wind"></p>
+                            <p id="humidity2" class="card-humidity"></p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card" id="day3">
-                        <h4 id="date3" class="card-date"></h4>
-                        <img id="weather3" class="card-weather" src="">
-                        <p id="temp3" class="card-temp"></p>
-                        <p id="wind3" class="card-wind"></p>
-                        <p id="humidity3" class="card-humidity"></p>
+                    <div class="col-sm">
+                        <div class="card" id="day3">
+                            <h4 id="date3" class="card-date"></h4>
+                            <img id="weather3" class="card-weather" src="">
+                            <p id="temp3" class="card-temp"></p>
+                            <p id="wind3" class="card-wind"></p>
+                            <p id="humidity3" class="card-humidity"></p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card" id="day4">
-                        <h4 id="date4" class="card-date"></h4>
-                        <img id="weather4" class="card-weather" src="">
-                        <p id="temp4" class="card-temp"></p>
-                        <p id="wind4" class="card-wind"></p>
-                        <p id="humidity4" class="card-humidity"></p>
+                    <div class="col-sm">
+                        <div class="card" id="day4">
+                            <h4 id="date4" class="card-date"></h4>
+                            <img id="weather4" class="card-weather" src="">
+                            <p id="temp4" class="card-temp"></p>
+                            <p id="wind4" class="card-wind"></p>
+                            <p id="humidity4" class="card-humidity"></p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm">
-                    <div class="card" id="day5">
-                        <h4 id="date5" class="card-date"></h4>
-                        <img id="weather5" class="card-weather" src="">
-                        <p id="temp5" class="card-temp"></p>
-                        <p id="wind5" class="card-wind"></p>
-                        <p id="humidity5" class="card-humidity"></p>
+                    <div class="col-sm">
+                        <div class="card" id="day5">
+                            <h4 id="date5" class="card-date"></h4>
+                            <img id="weather5" class="card-weather" src="">
+                            <p id="temp5" class="card-temp"></p>
+                            <p id="wind5" class="card-wind"></p>
+                            <p id="humidity5" class="card-humidity"></p>
+                        </div>
                     </div>
                 </div>
             </div>
