@@ -2,12 +2,11 @@
 
 Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
 
-[Git hub repository for challenge 6](https://github.com/RelentlessNC/weatherDashboard.git)
+[Git hub repository for challenge 6](https://github.com/RelentlessNC/weather_Dashboard.git)
 
-[live URL for challenge 6](https://relentlessnc.github.io/weatherDashboard/)
+[live URL for challenge 6](https://relentlessnc.github.io/Weather_Dashboard/)
 
-![screen shot of challenge 6 solution](./assets/images/2022-08-03_2-36-10.png)
-
+![screen shot of challenge 6 solution](./assets/images/weatherDashboard2.jpg)
 
 Use the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) to retrieve weather data for cities. Read through the documentation for setup and usage instructions. You will use localStorage to store any persistent data.
 
